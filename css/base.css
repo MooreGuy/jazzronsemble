@@ -6,18 +6,15 @@ body {
 	margin: 0;
 
 	color: white;
-	
 	font-size: 24px;
 
 	font-family: 'Lato', sans-serif;
 }
 
 .banner {
-	margin: 0 auto;
 	background-image: url("/images/ronsemble.jpg");
 	background-position: center;
 	color: white;
-	
 	font-size: 24px;
 
 	font-family: 'Lato', sans-serif;
