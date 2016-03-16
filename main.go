@@ -8,8 +8,6 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"os"
-	"strings"
 )
 
 const nameInput string = "newname"
@@ -21,7 +19,6 @@ type Ronsemble struct {
 }
 
 func main() {
-	connectDB()
 	http.HandleFunc("/", handleIndex)
 	http.HandleFunc("/newName", handleNewName)
 	http.Handle("/images/", http.StripPrefix("/images/",
@@ -52,32 +49,18 @@ func handleIndex(w http.ResponseWriter, r *http.Request) {
 func handleNewName(w http.ResponseWriter, r *http.Request) {
 	newName := r.FormValue(nameInput)
 
-	f, err := os.OpenFile("/srv/names.txt", os.O_APPEND|os.O_WRONLY, 077)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
-
-	_, err = f.WriteString(newName + "\n")
-	if err != nil {
-		log.Fatal(err.Error())
-	}
+	db := connectDB()
+	defer db.Close()
+	createName(db, newName)
 
 	handleIndex(w, r)
 }
 
 func getName() string {
-	f, err := os.OpenFile("/srv/names.txt", os.O_RDONLY, 0777)
-	if err != nil {
-		log.Println(err.Error())
-	}
+	db := connectDB()
+	defer db.Close()
+	names := getNames(db)
 
-	rawNames := make([]byte, 1024)
-	_, err = f.Read(rawNames)
-	if err != nil {
-		log.Println(err.Error())
-	}
-
-	names := strings.Split(string(rawNames), "\n")
 	index := rand.Int() % len(names)
 	return names[index]
 }
@@ -87,34 +70,50 @@ func connectDB() *sql.DB {
 	if err != nil {
 		panic(err.Error())
 	}
-	defer db.Close()
 
 	return db
 }
 
-func createName(db *sql.DB) {
+func createName(db *sql.DB, name string) {
 	query, err := db.Prepare("INSERT INTO names VALUES (?, ?)")
 	if err != nil {
 		panic(err.Error())
 	}
 	defer query.Close()
 
-	_, err = query.Exec("Ronald Duck", 0)
+	// 0 value for automatically incremented nameid column
+	_, err = query.Exec(name, 0)
 	if err != nil {
 		panic(err.Error())
 	}
 }
 
-func getNames(db *sql.DB) *sql.Rows {
+func getNames(db *sql.DB) []string {
 	query, err := db.Prepare("SELECT name, nameid FROM names")
 	if err != nil {
 		panic(err.Error())
 	}
 
-	values, err := query.Query()
+	rows, err := query.Query()
 	if err != nil {
 		panic(err.Error())
 	}
+	defer rows.Close()
 
-	return values
+	names := []string{}
+	for rows.Next() {
+		var id int
+		var name string
+		if err := rows.Scan(&name, &id); err != nil {
+			panic(err.Error())
+		}
+
+		names = append(names, name)
+	}
+
+	if err := rows.Err(); err != nil {
+		panic(err.Error())
+	}
+
+	return names
 }
