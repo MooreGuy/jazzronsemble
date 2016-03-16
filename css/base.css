@@ -1,0 +1,36 @@
+h {
+	font-size: 32px;
+}
+
+body {
+	margin: 0;
+
+	color: white;
+	
+	font-size: 24px;
+
+	font-family: 'Lato', sans-serif;
+}
+
+.banner {
+	margin: 0 auto;
+	background-image: url("/images/ronsemble.jpg");
+	background-position: center;
+	color: white;
+	
+	font-size: 24px;
+
+	font-family: 'Lato', sans-serif;
+
+	height: 500px;
+}
+
+.newName {
+	border-radius: 10px;
+	border: 2px solid #333;
+	color: black;
+	text-align: center;
+	margin: 0 auto;
+	width: 400px;
+	background-color: white;
+}
