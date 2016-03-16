@@ -4,22 +4,33 @@ h {
 
 body {
 	margin: 0;
-
-	color: white;
 	font-size: 24px;
 
 	font-family: 'Lato', sans-serif;
 }
 
-.banner {
+.banner:before {
+	height: 500px;
 	background-image: url("/images/ronsemble.jpg");
 	background-position: center;
+
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	display: block;
+
+	-webkit-filter: blur(4px);
+	-moz-filter: blur(4px);
+	-o-filter: blur(4px);
+	-ms-filter: blur(4px);
+	filter: blur(4px);
+}
+
+.banner {
 	color: white;
 	font-size: 24px;
-
-	font-family: 'Lato', sans-serif;
-
-	height: 500px;
 }
 
 .newName {
