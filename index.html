@@ -2,12 +2,42 @@
 <html>
 	<head>
 		<title>Jazz Ronsemble</title>
-
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,700,300,300italic,400italic,700italic,900italic,900,100italic,100' rel='stylesheet' type='text/css'>
 
 		<link href="css/base.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Angular shenanigans -->
+		<link rel="stylesheet" href="styles.css">
+
+		<!-- 1. Load libraries -->
+		<!-- IE required polyfills, in this exact order -->
+		<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+		<script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+		<script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+
+		<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+		<script src="node_modules/systemjs/dist/system.src.js"></script>
+		<script src="node_modules/rxjs/bundles/Rx.js"></script>
+		<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+		<!-- 2. Configure SystemJS -->
+		<script>
+		  System.config({
+			packages: {
+			  app: {
+			    format: 'register',
+				defaultExtension: 'js'
+			  }
+			}
+		  });
+		  System.import('app/main').then(null, console.error.bind(console));
+		</script>
 	</head>
+
+	<!-- 3. Display the application -->
 	<body>
+		<my-app>Loading...</my-app>
 		<div class="banner">
 			<div class="">
 				<h>Cuesta Big Band Jazz Ronsemble</h>
@@ -19,6 +49,11 @@
 					<input name="{{ .NameInput }}"></input>
 				</form>
 			</div>
+		</div>
+		<div class="panel">
+			<p>Get updates about concerts and events.</p>
+			<label>Enter your email</label>
+			<input name="{{ .NameInput }}"></input>
 		</div>
 	</body>
 </html>
