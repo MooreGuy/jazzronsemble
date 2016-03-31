@@ -1,0 +1,6 @@
+<div *ngIf="concert">
+	<h2>{{concert.name}} details</h2>
+	<div><label>id: </label>{{concert.id}}</div>
+	<label>name: </label>
+	<input [(ngModel)]="concert.name" placeholder="name">
+</div>

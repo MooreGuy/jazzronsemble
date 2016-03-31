@@ -1,0 +1,14 @@
+<h2>Concerts the band is performing in.</h2>
+<ul class="concerts">
+	<li *ngFor="#concert of concerts"
+		(click)="onSelect(concert)"
+		[class.selected]="concert === selectedConcert">
+		<span class="concertBlurb">{{concert.id}}</span> {{concert.name}}
+	</li>
+</ul>
+<div *ngIf="selectedConcert">
+	<h2>
+		{{selectedConcert.name | uppercase}}
+	</h2>
+	<button (click)="gotoDetail()">View Details</button>
+</div>
