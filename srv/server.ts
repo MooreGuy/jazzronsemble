@@ -1,7 +1,17 @@
 var http = require("http");
+var bodyParser = require("body-parser");
 
-http.createServer(function(request, response) {
-	response.writeHead(200, {"Content-Type": "text/plain"});
-	response.write("Hello World");
-	response.end();
-}).listen(8888);
+var express = require("express");
+var app = express();
+var router = express.Router();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencode({"extended": false}));
+
+router.get("/", function(req, res) {
+	res.json({"error": false, "message": "Hello world!"});
+});
+
+app.use('/', router);
+
+app.listen(8888);
