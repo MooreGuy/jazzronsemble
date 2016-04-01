@@ -1,0 +1,66 @@
+h1 {
+  font-size: 1.2em;
+  color: #039be5;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.foreGround {
+	background-color: transparent;
+	height: 500px;
+	position: absolute;
+	margin-top: -470px
+}
+
+.backGround {
+	height: 500px;
+
+	background-position: center;
+	background: 
+		/* top, transparent red, faked with gradient */ 
+		linear-gradient(
+		  rgba(3, 100, 229, 0.10), 
+		  rgba(3, 100, 229, 0.10)
+		), url(ronsemble.jpg);
+
+
+	/* Make it blurry */
+	-webkit-filter: blur(4px);
+	-moz-filter: blur(4px);
+	-o-filter: blur(4px);
+	-ms-filter: blur(4px);
+	filter: blur(4px);
+
+	overflow: hidden;
+	margin: -5px -10px -10px -5px;
+
+	z-index: -11;
+}
+
+nav a:visited, a:link {
+  color: #607D8B;
+}
+
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+
+nav a.router-link-active {
+  color: #039be5;
+}

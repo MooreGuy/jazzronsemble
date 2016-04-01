@@ -1,6 +1,8 @@
 jazzronsemble
 node_modules/
 typings/
+
 *.js
 *.map
 *.swp
+*.log

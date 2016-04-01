@@ -52,6 +52,7 @@ System.register(['angular2/core', './concert.service', './concerts.component', '
                     core_1.Component({
                         selector: 'my-app',
                         templateUrl: 'app/app.component.html',
+                        styleUrls: ['app/app.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
                             concert_service_1.ConcertService,
