@@ -1,4 +1,4 @@
-import {Concert} from './concert';
+import {Concert} from './Concert';
 
 export var CONCERTS: Concert[] = [
 	{"id": 1, "name": "Reno Jazz Festival"},

@@ -1,7 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router} from 'angular2/router';
 
-import {Concert} from './concert';
+import {Concert} from './Concert';
 import {ConcertDetailComponent} from './concert-detail.component';
 import {CONCERTS} from './mock-concerts';
 import {ConcertService} from './concert.service';

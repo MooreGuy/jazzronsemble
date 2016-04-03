@@ -1,12 +1,8 @@
-var http = require("http");
-var bodyParser = require("body-parser");
+import http = require("http");
+import express = require("express");
 
-var express = require("express");
 var app = express();
 var router = express.Router();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencode({"extended": false}));
 
 router.get("/", function(req, res) {
 	res.json({"error": false, "message": "Hello world!"});

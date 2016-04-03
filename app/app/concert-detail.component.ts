@@ -1,4 +1,4 @@
-import {Concert} from './concert';
+import {Concert} from './Concert';
 import {ConcertService} from './concert.service';
 
 import {RouteParams} from 'angular2/router';

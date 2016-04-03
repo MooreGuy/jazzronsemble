@@ -3,6 +3,7 @@ import {ConcertService} from './concert.service';
 import {ConcertsComponent} from './concerts.component';
 import {DashboardComponent} from './dashboard.component';
 import {ConcertDetailComponent} from './concert-detail.component';
+import {RonName} from './RonName';
 
 import {
 	RouteConfig,
