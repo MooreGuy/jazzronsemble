@@ -3,6 +3,8 @@ import {ConcertService} from './concert.service';
 import {ConcertsComponent} from './concerts.component';
 import {DashboardComponent} from './dashboard.component';
 import {ConcertDetailComponent} from './concert-detail.component';
+import {AboutComponent} from './about.component';
+import {ContactComponent} from './contact.component';
 import {RonName} from './RonName';
 
 import {
@@ -13,8 +15,8 @@ import {
 
 @Component({
 	selector: 'my-app',
-	templateUrl: 'app/app.component.html',
-	styleUrls: ['app/app.component.css'],
+	templateUrl: 'static/app/app.component.html',
+	styleUrls: ['static/app/app.component.css'],
 	directives: [ROUTER_DIRECTIVES],
 	providers: [
 		ConcertService,

@@ -15,8 +15,8 @@ export class RonName {
 
 @Component({
     selector: 'concerts',
-	templateUrl: 'app/concerts.component.html',
-	styleUrls: ['app/concerts.component.css'],
+	templateUrl: 'static/app/concerts.component.html',
+	styleUrls: ['static/app/concerts.component.css'],
 	directives: [ConcertDetailComponent]
 })
 

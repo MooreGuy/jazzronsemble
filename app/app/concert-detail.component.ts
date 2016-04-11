@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from 'angular2/core';
 @Component({
 	selector: 'concert-detail',
 	providers: [ConcertService],
-	templateUrl: 'app/concert-detail.component.html',
-	styleUrls: ['app/concert-detail.component.css']
+	templateUrl: 'static/app/concert-detail.component.html',
+	styleUrls: ['static/app/concert-detail.component.css']
 })
 
 export class ConcertDetailComponent implements OnInit {
