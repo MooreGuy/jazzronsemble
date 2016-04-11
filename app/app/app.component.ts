@@ -26,20 +26,30 @@ import {
 
 @RouteConfig([
 	{
+		path: '/static',
+		name: 'Home',
+		component: AppComponent
+	},
+	{
 		path: '/concerts',
 		name: 'Concerts',
 		component: ConcertsComponent
 	},
 	{
-		path: '/dashboard',
-		name: 'Dashboard',
-		component: DashboardComponent,
-		useAsDefault: true
-	},
-	{
 		path: '/concerts/detail/:id',
 		name: 'ConcertDetail',
 		component: ConcertDetailComponent
+	},
+	{
+		path: '/about',
+		name: 'About',
+		component: AboutComponent
+	},
+	{
+		path: '/contact',
+		name: 'Contact',
+		component: ContactComponent
+
 	}
 ])
 
