@@ -1,0 +1,11 @@
+web:
+    build: .
+    expose:
+        - 80
+    links:
+        - db
+
+db:
+    image: mysql
+    expose:
+        - 3306

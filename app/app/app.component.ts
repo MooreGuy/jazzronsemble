@@ -26,11 +26,6 @@ import {
 
 @RouteConfig([
 	{
-		path: '/static',
-		name: 'Home',
-		component: AppComponent
-	},
-	{
 		path: '/concerts',
 		name: 'Concerts',
 		component: ConcertsComponent
